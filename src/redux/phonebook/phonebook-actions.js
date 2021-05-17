@@ -17,3 +17,18 @@ export const deleteContactSuccess = createAction(
 export const deleteContactFail = createAction('contacts/deleteContactFail');
 
 export const findContact = createAction('contactsFilter/filterContact');
+
+const phonebookActions = {
+    fetchContactsRequest,
+    fetchContactsSuccess,
+    fetchContactsFail,
+    addContactRequest,
+    addContactSuccess,
+    addContactFail,
+    deleteContactRequest,
+    deleteContactSuccess,
+    deleteContactFail,
+    findContact,
+};
+
+export default phonebookActions;

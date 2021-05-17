@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { connect } from 'react-redux';
-import { deleteContact } from '../../redux/phonebook/phonebook-operations';
-import * as selectors from '../../redux/phonebook/phonebook-selectors';
+import { phonebookOperations } from '../../redux/phonebook';
+import { phonebookSelectors } from '../../redux/phonebook';
 
 const useStyles = createUseStyles({
     contactsList: {
@@ -71,11 +71,11 @@ const Contacts = ({ contacts, onDelete }) => {
 };
 
 const mapStateToProps = state => ({
-    contacts: selectors.getVisibleContacts(state),
+    contacts: phonebookSelectors.getVisibleContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onDelete: id => dispatch(deleteContact(id)),
+    onDelete: id => dispatch(phonebookOperations.deleteContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contacts);

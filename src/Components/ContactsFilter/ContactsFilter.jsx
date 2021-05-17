@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { connect } from 'react-redux';
-import * as actions from '../../redux/phonebook/phonebook-actions';
-import * as selectors from '../../redux/phonebook/phonebook-selectors';
+import { phonebookActions } from '../../redux/phonebook';
+import { phonebookSelectors } from '../../redux/phonebook';
 
 const useStyles = createUseStyles({
     filterForm: {
@@ -37,12 +37,13 @@ const ContactsFilter = ({ contacts, filter, onChange }) => {
     );
 };
 const mapStateToProps = state => ({
-    contacts: selectors.getContacts(state),
-    filter: selectors.getFilter(state),
+    contacts: phonebookSelectors.getContacts(state),
+    filter: phonebookSelectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChange: e => dispatch(actions.findContact(e.currentTarget.value)),
+    onChange: e =>
+        dispatch(phonebookActions.findContact(e.currentTarget.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsFilter);

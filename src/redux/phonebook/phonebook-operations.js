@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actions from './phonebook-actions';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 const fetchContacts = () => dispatch => {
     dispatch(actions.fetchContactsRequest());
@@ -31,4 +31,6 @@ const deleteContact = contactId => dispatch => {
         });
 };
 
-export { fetchContacts, addContact, deleteContact };
+const phonebookOperations = { fetchContacts, addContact, deleteContact };
+
+export default phonebookOperations;

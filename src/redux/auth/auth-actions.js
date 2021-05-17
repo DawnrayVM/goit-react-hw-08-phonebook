@@ -16,7 +16,7 @@ const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
 const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
 const getCurrentUserFail = createAction('auth/getCurrentUserFail');
 
-export default {
+const authActions = {
     regRequest,
     regSuccess,
     regFail,
@@ -30,3 +30,5 @@ export default {
     getCurrentUserSuccess,
     getCurrentUserFail,
 };
+
+export default authActions;

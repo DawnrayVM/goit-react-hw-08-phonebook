@@ -1,18 +1,31 @@
-import { NavLink, Router } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import routes from '../../routes';
-
-import HomeView from '../../views/HomeView';
 import AuthNav from '../AuthNav';
+import UserMenu from '../UserMenu';
+import { authSelectors } from '../../redux/auth';
 
-const AppBar = () => {
+const AppBar = ({ isAuthenticated }) => {
     return (
         <nav>
-            <NavLink exact to={routes.home}>
-                Home
-            </NavLink>
-            <AuthNav />
+            <ul>
+                <li>
+                    <NavLink exact to={routes.home}>
+                        Home
+                    </NavLink>
+                </li>
+                {isAuthenticated && (
+                    <li>
+                        <NavLink to={routes.phonebook}>Phonebook</NavLink>
+                    </li>
+                )}
+                <li>{isAuthenticated ? <UserMenu /> : <AuthNav />}</li>
+            </ul>
         </nav>
     );
 };
+const mapStateToProps = state => ({
+    isAuthenticated: authSelectors.getIsLoggedIn(state),
+});
 
-export default AppBar;
+export default connect(mapStateToProps, null)(AppBar);

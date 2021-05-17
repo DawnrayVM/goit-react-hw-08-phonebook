@@ -1,20 +1,20 @@
-import { createReducer } from '@reduxjs/toolkit';
-import * as actions from '../redux/actions';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
+import phonebookActions from './phonebook-actions';
 
-const contactsReducer = createReducer([], {
-    [actions.addContactSuccess]: (state, { payload }) =>
+const contacts = createReducer([], {
+    [phonebookActions.addContactSuccess]: (state, { payload }) =>
         Object.values(
             state.map(({ name }) => name).includes(payload.name)
                 ? (alert('Contact with such name already exists'), [...state])
                 : [...state, payload],
         ),
-    [actions.deleteContactSuccess]: (state, { payload }) =>
+    [phonebookActions.deleteContactSuccess]: (state, { payload }) =>
         state.filter(({ id }) => id !== payload),
-    [actions.fetchContactsSuccess]: (_, { payload }) => [...payload],
+    [phonebookActions.fetchContactsSuccess]: (_, { payload }) => [...payload],
 });
 
-const filterReducer = createReducer('', {
-    [actions.findContact]: (_, { payload }) => payload,
+const filter = createReducer('', {
+    [phonebookActions.findContact]: (_, { payload }) => payload,
 });
 
-export { contactsReducer, filterReducer };
+export default combineReducers({ contacts, filter });

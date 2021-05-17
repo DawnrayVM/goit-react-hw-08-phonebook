@@ -1,12 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const getContacts = state => state.contacts;
-export const getFilter = state => state.filter;
+const getContacts = state => state.phonebook.contacts;
+const getFilter = state => state.phonebook.filter;
 
-export const getVisibleContacts = createSelector(
+const getVisibleContacts = createSelector(
     [getContacts, getFilter],
     (contacts, filter) =>
         contacts.filter(({ name }) =>
             name.toLowerCase().includes(filter.toLowerCase()),
         ),
 );
+const phonebookSelectors = { getContacts, getFilter, getVisibleContacts };
+
+export default phonebookSelectors;
