@@ -26,6 +26,11 @@ const useStyles = createUseStyles({
         textAlign: 'center',
         color: 'black',
     },
+    navLinkActive: {
+        textDecoration: 'none',
+    textAlign: 'center',
+    color: '#0d6efd'
+},
 });
 
 const AuthNav = () => {
@@ -34,12 +39,12 @@ const AuthNav = () => {
         <nav className={classes.navContainer}>
             <ul className={classes.listBar}>
                 <li className={classes.listItem}>
-                    <NavLink to={routes.register} className={classes.navLink}>
+                    <NavLink to={routes.register} className={classes.navLink} activeClassName={classes.navLinkActive}  isActive={(match) => match && true}>
                         Register
                     </NavLink>
                 </li>
                 <li className={classes.listItem}>
-                    <NavLink to={routes.login} className={classes.navLink}>
+                    <NavLink to={routes.login} className={classes.navLink} activeClassName={classes.navLinkActive}  isActive={(match) => match && true}>
                         Login
                     </NavLink>
                 </li>

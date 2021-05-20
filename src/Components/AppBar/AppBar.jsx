@@ -46,6 +46,11 @@ const useStyles = createUseStyles({
         marginRight: 20,
     },
     navLink: { textDecoration: 'none', textAlign: 'center', color: 'black' },
+    navLinkActive: {
+        textDecoration: 'none',
+    textAlign: 'center',
+    color: '#0d6efd'
+},
 });
 
 const AppBar = ({ isAuthenticated }) => {
@@ -59,7 +64,8 @@ const AppBar = ({ isAuthenticated }) => {
                             exact
                             to={routes.home}
                             className={classes.navLink}
-                        >
+                            activeClassName={classes.navLinkActive}
+                            isActive={(match) => match && true}>
                             Home
                         </NavLink>
                     </li>
@@ -68,7 +74,8 @@ const AppBar = ({ isAuthenticated }) => {
                             <NavLink
                                 to={routes.phonebook}
                                 className={classes.navLink}
-                            >
+                                activeClassName={classes.navLinkActive}
+                                isActive={(match) => match && true}>
                                 Phonebook
                             </NavLink>
                         </li>
