@@ -65,7 +65,7 @@ const AppBar = ({ isAuthenticated }) => {
                             to={routes.home}
                             className={classes.navLink}
                             activeClassName={classes.navLinkActive}
-                            isActive={(match) => match && true}>
+                            >
                             Home
                         </NavLink>
                     </li>
@@ -75,7 +75,7 @@ const AppBar = ({ isAuthenticated }) => {
                                 to={routes.phonebook}
                                 className={classes.navLink}
                                 activeClassName={classes.navLinkActive}
-                                isActive={(match) => match && true}>
+                                >
                                 Phonebook
                             </NavLink>
                         </li>

@@ -39,12 +39,12 @@ const AuthNav = () => {
         <nav className={classes.navContainer}>
             <ul className={classes.listBar}>
                 <li className={classes.listItem}>
-                    <NavLink to={routes.register} className={classes.navLink} activeClassName={classes.navLinkActive}  isActive={(match) => match && true}>
+                    <NavLink to={routes.register} className={classes.navLink} activeClassName={classes.navLinkActive}  >
                         Register
                     </NavLink>
                 </li>
                 <li className={classes.listItem}>
-                    <NavLink to={routes.login} className={classes.navLink} activeClassName={classes.navLinkActive}  isActive={(match) => match && true}>
+                    <NavLink to={routes.login} className={classes.navLink} activeClassName={classes.navLinkActive}  >
                         Login
                     </NavLink>
                 </li>
