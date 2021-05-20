@@ -6,9 +6,9 @@ import { phonebookSelectors } from '../../redux/phonebook';
 const useStyles = createUseStyles({
     filterForm: {
         fontFamily: 'Roboto',
-        width: 370,
-        marginTop: 10,
-        padding: '15px 10px',
+        width: 576,
+        marginTop: 20,
+        padding: '20px 15px',
         border: '1px solid rgba(225, 225, 225, 10)',
         borderRadius: 5,
         boxShadow: '3px 3px 5px 0px rgba(225, 225, 225, 10)',
@@ -24,14 +24,15 @@ const ContactsFilter = ({ contacts, filter, onChange }) => {
     return (
         contacts.length > 0 && (
             <form className={classes.filterForm}>
-                <label>
+               
                     <input
                         type="text"
                         value={filter}
                         onChange={onChange}
-                        className={classes.filterInput}
+                        className="form-control"
+                        placeholder="Start typing to find a contact"
                     />
-                </label>
+               
             </form>
         )
     );

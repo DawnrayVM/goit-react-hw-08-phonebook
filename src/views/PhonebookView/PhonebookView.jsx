@@ -8,6 +8,11 @@ import { phonebookOperations } from '../../redux/phonebook';
 
 const useStyles = createUseStyles({
     container: {
+            width: 'fit-content',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-around',
         padding: '0 15px',
         '@media (min-width: 575.98px)': {
             padding: '0 calc(50vw - 270px)',

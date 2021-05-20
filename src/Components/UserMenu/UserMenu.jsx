@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { createUseStyles } from 'react-jss';
 import { authSelectors } from '../../redux/auth';
 import { authOperations } from '../../redux/auth';
+import avatar from '../../assets/avatar.png'
 
 const useStyles = createUseStyles({
     logoutBtn: {
@@ -16,13 +17,14 @@ const UserMenu = ({ name, logOut }) => {
     const classes = useStyles();
     return (
         <div>
-            <span className={classes.userName}>Добро пожаловать, {name}</span>
+            <img src={avatar} alt="avatar" width="32"/>
+            <span className={classes.userName}>Welcome, {name}</span>
             <button
                 type="button"
                 onClick={logOut}
                 className="btn btn-primary btn-sm"
             >
-                Выйти
+                Logout
             </button>
         </div>
     );
