@@ -1,15 +1,32 @@
 import { connect } from 'react-redux';
+import { createUseStyles } from 'react-jss';
 import { authSelectors } from '../../redux/auth';
 import { authOperations } from '../../redux/auth';
 
-const UserMenu = ({ name, logOut }) => (
-    <div>
-        <span>Вы вошли как {name}</span>
-        <button type="button" onClick={logOut}>
-            Выйти
-        </button>
-    </div>
-);
+const useStyles = createUseStyles({
+    logoutBtn: {
+        borderStyle: 'none',
+    },
+    userName: {
+        marginRight: 20,
+    },
+});
+
+const UserMenu = ({ name, logOut }) => {
+    const classes = useStyles();
+    return (
+        <div>
+            <span className={classes.userName}>Добро пожаловать, {name}</span>
+            <button
+                type="button"
+                onClick={logOut}
+                className="btn btn-primary btn-sm"
+            >
+                Выйти
+            </button>
+        </div>
+    );
+};
 
 const mapStateToProps = state => ({
     name: authSelectors.getUserName(state),
